@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 24.8.1.2 (Linux)"/>
+	<meta name="created" content="00:00:00"/>
+	<meta name="changed" content="00:00:00"/>
+	<style type="text/css">
+		@page { size: 8.27in 11.69in; margin: 0.79in }
+		p { line-height: 115%; margin-bottom: 0.1in; background: transparent }
+		pre { background: transparent }
+		pre.western { font-family: "Liberation Mono", monospace; font-size: 10pt }
+		pre.cjk { font-family: "NSimSun", monospace; font-size: 10pt }
+		pre.ctl { font-family: "Liberation Mono", monospace; font-size: 10pt }
+	</style>
+</head>
+<body lang="en-US" link="#000080" vlink="#800000" dir="ltr"><pre class="western">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;zh-Hant&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;TicketBot - <font face="NSimSun, monospace"><span lang="zh-CN">專業港澳台演唱會搶票助手</span></font>&lt;/title&gt;
+    &lt;style&gt;
+        body {
+            font-family: 'Microsoft JhengHei', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        .header {
+            background-color: #d32f2f;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .countdown-section {
+            background-color: #d32f2f;
+            color: white;
+            padding: 30px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .countdown-timer {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+        .concert-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin: 30px 0;
+        }
+        .concert-item {
+            width: 305px;
+            height: 700px;
+            margin: 15px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .concert-item:hover {
+            transform: scale(1.05);
+        }
+        .concert-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .concert-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(211, 47, 47, 0.8);
+            color: white;
+            padding: 15px;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #d32f2f;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 10px 5px;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #b71c1c;
+        }
+        .pricing-section {
+            display: flex;
+            justify-content: center;
+            margin: 40px 0;
+        }
+        .pricing-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            padding: 30px;
+            margin: 0 20px;
+            text-align: center;
+            width: 300px;
+        }
+        .payment-methods {
+            text-align: center;
+            margin: 40px 0;
+        }
+        .payment-qr {
+            display: inline-block;
+            margin: 0 15px;
+        }  
+        .video-section {
+            display: flex;
+            justify-content: space-around;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+         .video-box {
+            width: 45%;
+            min-width: 300px;
+            margin-bottom: 20px;
+        }
+           .video-box1 {
+            width: 80%;
+            min-width: 300px;
+            margin-bottom: 20px;
+        }
+        .download-qr {
+            text-align: center;
+            display: inline-block;
+            margin: 0 15px;
+        }
+        .social-section {
+            text-align: center;
+            margin: 40px 0;
+        }
+        .social-qr {
+            display: inline-block;
+            margin: 0 15px;
+        }
+        .marketplace-links {
+            text-align: center;
+            margin: 40px 0;
+        }
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            border-top: 2px solid #fff;
+            margin-top: 30px;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class=&quot;header&quot;&gt;
+        &lt;h1&gt;TicketBot <font face="NSimSun, monospace"><span lang="zh-CN">專業港澳台演唱會搶票助手</span></font>&lt;/h1&gt;
+        &lt;p&gt;<font face="NSimSun, monospace"><span lang="zh-CN">手機電腦雙平台支援，極速搶票不再錯過心儀演出</span></font>&lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;container&quot;&gt;
+        &lt;div class=&quot;countdown-section&quot;&gt;
+            &lt;h2&gt;<font face="NSimSun, monospace"><span lang="zh-CN">陳奕迅 </span></font>FEAR and DREAMS <font face="NSimSun, monospace"><span lang="zh-CN">澳門站 搶票倒數</span></font>&lt;/h2&gt;
+            &lt;div class=&quot;countdown-timer&quot; id=&quot;countdown&quot;&gt;
+           
+            &lt;/div&gt;
+            &lt;a href=&quot;https://shows.cityline.com/tc/2025/easonmacau.html&quot; class=&quot;btn&quot;&gt;<font face="NSimSun, monospace"><span lang="zh-CN">馬上搶飛</span></font>&lt;/a&gt;
+        &lt;/div&gt;
+
+        &lt;h2 style=&quot;text-align: center;&quot;&gt;<font face="NSimSun, monospace"><span lang="zh-CN">即將開搶演唱會</span></font>&lt;/h2&gt;
+        &lt;div class=&quot;concert-grid&quot;&gt;
+            &lt;div class=&quot;concert-item&quot;&gt;
+                &lt;img src=&quot;https://img.alicdn.com/imgextra/i4/91924417/O1CN011UIR0J1iV2ULWNHUk_!!91924417.png&quot; alt=&quot;<font face="NSimSun, monospace"><span lang="zh-CN">演唱會</span></font>1&quot;&gt;
+                &lt;div class=&quot;concert-info&quot;&gt;
+                    &lt;h3&gt;PARK BO GUM [BE WITH YOU] <font face="NSimSun, monospace"><span lang="zh-CN">香港站</span></font>&lt;/h3&gt;
+                    &lt;p&gt;<font face="NSimSun, monospace"><span lang="zh-CN">開搶日 </span></font>2025<font face="NSimSun, monospace"><span lang="zh-CN">年</span></font>6<font face="NSimSun, monospace"><span lang="zh-CN">月</span></font>23<font face="NSimSun, monospace"><span lang="zh-CN">日 </span></font>15:00&lt;/p&gt;
+                    &lt;div class=&quot;countdown-timer&quot; id=&quot;concert1-countdown&quot;&gt;&lt;/div&gt;
+                    &lt;a href=&quot;https://priority.cityline.com/tc/2025/parkbogummc2025.html&quot; class=&quot;btn&quot;&gt;Cityline <font face="NSimSun, monospace"><span lang="zh-CN">馬上搶飛</span></font>&lt;/a&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;concert-item&quot;&gt;
+                &lt;img src=&quot;https://img.alicdn.com/imgextra/i1/91924417/O1CN01MKXwXD1iV2UO2OzYr_!!91924417.png&quot; alt=&quot;<font face="NSimSun, monospace"><span lang="zh-CN">演唱會</span></font>2&quot;&gt;
+                &lt;div class=&quot;concert-info&quot;&gt;
+                    &lt;h3&gt;<font face="NSimSun, monospace"><span lang="zh-CN">陳奕迅 </span></font>[FEAR and DREAMS] <font face="NSimSun, monospace"><span lang="zh-CN">澳門站</span></font>&lt;/h3&gt;
+                    &lt;p&gt;<font face="NSimSun, monospace"><span lang="zh-CN">開搶日 </span></font>2025<font face="NSimSun, monospace"><span lang="zh-CN">年</span></font>6<font face="NSimSun, monospace"><span lang="zh-CN">月</span></font>23<font face="NSimSun, monospace"><span lang="zh-CN">日 </span></font>11:00&lt;/p&gt;
+                    &lt;div class=&quot;countdown-timer&quot; id=&quot;concert2-countdown&quot;&gt;&lt;/div&gt;
+                    &lt;a href=&quot;https://shows.cityline.com/tc/2025/easonmacau.html&quot; class=&quot;btn&quot;&gt;Cityline <font face="NSimSun, monospace"><span lang="zh-CN">馬上搶飛</span></font>&lt;/a&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;concert-item&quot;&gt;
+                &lt;img src=&quot;https://img.alicdn.com/imgextra/i1/91924417/O1CN01IQF99v1iV2UM4Fjhu_!!91924417.webp&quot; alt=&quot;<font face="NSimSun, monospace"><span lang="zh-CN">演唱會</span></font>3&quot;&gt;
+                &lt;div class=&quot;concert-info&quot;&gt;
+                    &lt;h3&gt;GEM [I AM GLORIA] <font face="NSimSun, monospace"><span lang="zh-CN">香港站</span></font>&lt;/h3&gt;
+                    &lt;p&gt;<font face="NSimSun, monospace"><span lang="zh-CN">開搶日 </span></font>2025<font face="NSimSun, monospace"><span lang="zh-CN">年</span></font>7<font face="NSimSun, monospace"><span lang="zh-CN">月</span></font>4<font face="NSimSun, monospace"><span lang="zh-CN">日 </span></font>12:00&lt;/p&gt;
+                    &lt;div class=&quot;countdown-timer&quot; id=&quot;concert3-countdown&quot;&gt;&lt;/div&gt;
+                    &lt;a href=&quot;https://edproduction.kktix.cc/events/konomisuzuki-hk-2025&quot; class=&quot;btn&quot;&gt;<font face="NSimSun, monospace"><span lang="zh-CN">快達票 馬上搶飛</span></font>&lt;/a&gt;
+                &lt;/div&gt;
+           &lt;/div&gt;
+        &lt;div class=&quot;concert-item&quot;&gt;
+                &lt;img src=&quot;https://img.alicdn.com/imgextra/i2/91924417/O1CN014iYhB71iV2UMlQRk0_!!91924417.jpg&quot; alt=&quot;<font face="NSimSun, monospace"><span lang="zh-CN">演唱會</span></font>4&quot;&gt;
+                &lt;div class=&quot;concert-info&quot;&gt;
+                    &lt;h3&gt;NCT DREAM [DREAM THE FUTURE] <font face="NSimSun, monospace"><span lang="zh-CN">香港站</span></font>&lt;/h3&gt;
+                    &lt;p&gt;<font face="NSimSun, monospace"><span lang="zh-CN">開搶日 </span></font>2025<font face="NSimSun, monospace"><span lang="zh-CN">年</span></font>7<font face="NSimSun, monospace"><span lang="zh-CN">月</span></font>4<font face="NSimSun, monospace"><span lang="zh-CN">日 </span></font>12:00&lt;/p&gt;
+                    &lt;div class=&quot;countdown-timer&quot; id=&quot;concert4-countdown&quot;&gt;&lt;/div&gt;
+                    &lt;a href=&quot;https://edproduction.kktix.cc/events/konomisuzuki-hk-2025&quot; class=&quot;btn&quot;&gt;<font face="NSimSun, monospace"><span lang="zh-CN">快達票 馬上搶飛</span></font>&lt;/a&gt;
+                  &lt;/div&gt;
+           &lt;/div&gt;
+                  &lt;div class=&quot;concert-item&quot;&gt;
+                &lt;img src=&quot;https://img.alicdn.com/imgextra/i1/91924417/O1CN01BFfrF21iV2UObXysy_!!91924417.jpg&quot; alt=&quot;<font face="NSimSun, monospace"><span lang="zh-CN">演唱會</span></font>5&quot;&gt;
+                &lt;div class=&quot;concert-info&quot;&gt;
+                    &lt;h3&gt;GD <font face="NSimSun, monospace"><span lang="zh-CN">權志龍 </span></font>[Übermensch] <font face="NSimSun, monospace"><span lang="zh-CN">香港站</span></font>&lt;/h3&gt;
+                    &lt;p&gt;<font face="NSimSun, monospace"><span lang="zh-CN">開搶日 </span></font>2025<font face="NSimSun, monospace"><span lang="zh-CN">年</span></font>8<font face="NSimSun, monospace"><span lang="zh-CN">月</span></font>9-10<font face="NSimSun, monospace"><span lang="zh-CN">日 </span></font>12:00&lt;/p&gt;
+                    &lt;div class=&quot;countdown-timer&quot; id=&quot;concert5-countdown&quot;&gt;&lt;/div&gt;
+                    &lt;a href=&quot;https://edproduction.kktix.cc/events/konomisuzuki-hk-2025&quot; class=&quot;btn&quot;&gt;<font face="NSimSun, monospace"><span lang="zh-CN">快達票 馬上搶飛</span></font>&lt;/a&gt;
+                  &lt;/div&gt;
+           &lt;/div&gt;
+                  &lt;div class=&quot;concert-item&quot;&gt;
+                &lt;img src=&quot;https://img.alicdn.com/imgextra/i1/91924417/O1CN01ZjpxE61iV2UINhXca_!!91924417.jpg&quot; alt=&quot;<font face="NSimSun, monospace"><span lang="zh-CN">演唱會</span></font>6&quot;&gt;
+                &lt;div class=&quot;concert-info&quot;&gt;
+                    &lt;h3&gt;TWICE [THIS IS FOR] <font face="NSimSun, monospace"><span lang="zh-CN">香港站</span></font>&lt;/h3&gt;
+                    &lt;p&gt;<font face="NSimSun, monospace"><span lang="zh-CN">開搶日 </span></font>2025<font face="NSimSun, monospace"><span lang="zh-CN">年</span></font>12<font face="NSimSun, monospace"><span lang="zh-CN">月</span></font>6<font face="NSimSun, monospace"><span lang="zh-CN">日 </span></font>12:00&lt;/p&gt;
+                    &lt;div class=&quot;countdown-timer&quot; id=&quot;concert6-countdown&quot;&gt;&lt;/div&gt;
+                    &lt;a href=&quot;https://edproduction.kktix.cc/events/konomisuzuki-hk-2025&quot; class=&quot;btn&quot;&gt;<font face="NSimSun, monospace"><span lang="zh-CN">快達票 馬上搶飛</span></font>&lt;/a&gt;
+                  &lt;/div&gt;
+           &lt;/div&gt;
+        &lt;div class=&quot;pricing-section&quot;&gt;
+            &lt;div class=&quot;pricing-card&quot;&gt;
+                &lt;h3&gt;<font face="NSimSun, monospace"><span lang="zh-CN">月費計劃</span></font>&lt;/h3&gt;
+                &lt;p&gt;&lt;span style=&quot;font-size: 2em; font-weight: bold;&quot;&gt;HK$180&lt;/span&gt;/<font face="NSimSun, monospace"><span lang="zh-CN">月</span></font>&lt;/p&gt;
+                &lt;p&gt;6<font face="NSimSun, monospace"><span lang="zh-CN">個金鑰可供</span></font>6<font face="NSimSun, monospace"><span lang="zh-CN">個設備一齊使用</span></font>&lt;/p&gt;
+                &lt;p&gt;<font face="NSimSun, monospace"><span lang="zh-CN">無限次搶票服務</span></font>&lt;/p&gt;
+                &lt;p&gt;<font face="NSimSun, monospace"><span lang="zh-CN">自動刷新最快可設置</span></font>1<font face="NSimSun, monospace"><span lang="zh-CN">秒</span></font>&lt;/p&gt;
+                &lt;p&gt;<font face="NSimSun, monospace"><span lang="zh-CN">自動鎖票</span></font>&lt;/p&gt;
+                &lt;p&gt;<font face="NSimSun, monospace"><span lang="zh-CN">自動填表功能</span></font>&lt;/p&gt;
+                &lt;p&gt;24/7<font face="NSimSun, monospace"><span lang="zh-CN">人工支援</span></font>&lt;/p&gt;
+                &lt;a href=&quot;#&quot; class=&quot;btn&quot;&gt;<font face="NSimSun, monospace"><span lang="zh-CN">月費計劃 支付方式購買</span></font>&lt;/a&gt;
+                &lt;a href=&quot;http://wa.me/85253464323&quot; class=&quot;btn&quot;&gt;whatsapp me&lt;/a&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;pricing-card&quot;&gt;
+                &lt;h3&gt;<font face="NSimSun, monospace"><span lang="zh-CN">按次收費</span></font>&lt;/h3&gt;
+                &lt;p&gt;&lt;span style=&quot;font-size: 2em; font-weight: bold;&quot;&gt;HK$100&lt;/span&gt;/<font face="NSimSun, monospace"><span lang="zh-CN">次</span></font>&lt;/p&gt;
+                &lt;p&gt;6<font face="NSimSun, monospace"><span lang="zh-CN">個金鑰可供</span></font>6<font face="NSimSun, monospace"><span lang="zh-CN">個設備一齊使用</span></font>&lt;/p&gt;
+                &lt;p&gt;<font face="NSimSun, monospace"><span lang="zh-CN">單次搶票服務</span></font>&lt;/p&gt;
+                &lt;p&gt;<font face="NSimSun, monospace"><span lang="zh-CN">自動刷新最快可設置</span></font>1<font face="NSimSun, monospace"><span lang="zh-CN">秒</span></font>&lt;/p&gt;
+                &lt;p&gt;<font face="NSimSun, monospace"><span lang="zh-CN">自動鎖票</span></font>&lt;/p&gt;
+                &lt;p&gt;<font face="NSimSun, monospace"><span lang="zh-CN">自動填表功能</span></font>&lt;/p&gt;
+                &lt;p&gt;24/7<font face="NSimSun, monospace"><span lang="zh-CN">人工支援</span></font>&lt;/p&gt;
+                &lt;a href=&quot;#&quot; class=&quot;btn&quot;&gt;<font face="NSimSun, monospace"><span lang="zh-CN">單次購買 支付方式購買</span></font>&lt;/a&gt;
+                &lt;a href=&quot;http://wa.me/85253464323&quot; class=&quot;btn&quot;&gt;whatsapp me&lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;div class=&quot;video-section&quot;&gt;
+            &lt;div class=&quot;video-box1&quot;&gt;
+                &lt;h2 style=&quot;color: #d32f2f; text-align: center;&quot;&gt;Cityline <font face="NSimSun, monospace"><span lang="zh-CN">搶票實戰</span></font>&lt;/h2&gt;
+                &lt;iframe width=&quot;100%&quot; height=&quot;400&quot; src=&quot;//player.bilibili.com/player.html?isOutside=true&amp;aid=114713862078495&amp;bvid=BV1e3KczxEKG&amp;cid=30594959182&amp;p=1&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+              &lt;div class=&quot;video-section&quot;&gt;
+            &lt;div class=&quot;video-box1&quot;&gt;
+                &lt;h2 style=&quot;color: #d32f2f; text-align: center;&quot;&gt;KKTIX <font face="NSimSun, monospace"><span lang="zh-CN">搶票實戰</span></font>&lt;/h2&gt;
+                &lt;iframe width=&quot;100%&quot; height=&quot;400&quot; src=&quot;//player.bilibili.com/player.html?isOutside=true&amp;aid=114719616665051&amp;bvid=BV1HcNkznE4s&amp;cid=30614487712&amp;p=1&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
+  &lt;/div&gt;           
+&lt;div class=&quot;payment-methods&quot;&gt;
+            &lt;h2&gt;<font face="NSimSun, monospace"><span lang="zh-CN">馬上下載 </span></font>TicketBot <font face="NSimSun, monospace"><span lang="zh-CN">掃下列二維碼</span></font>&lt;/h2&gt;
+            &lt;div class=&quot;payment-qr&quot;&gt;
+                &lt;img src=&quot;https://img.alicdn.com/imgextra/i4/91924417/O1CN012Wxxrz1iV2UHQeujc_!!91924417.png&quot; alt=&quot;<font face="NSimSun, monospace"><span lang="zh-CN">安裝教學</span></font>&quot; width=&quot;190&quot;&gt;
+                &lt;p&gt;<font face="NSimSun, monospace"><span lang="zh-CN">安裝教學</span></font>&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;payment-qr&quot;&gt;
+                &lt;img src=&quot;https://img.alicdn.com/imgextra/i1/91924417/O1CN01ZKhJnm1iV2UBhiZzA_!!91924417.png&quot; alt=&quot;<font face="NSimSun, monospace"><span lang="zh-CN">安裝程式</span></font>&quot; width=&quot;190&quot;&gt;
+                &lt;p&gt;<font face="NSimSun, monospace"><span lang="zh-CN">安裝程式</span></font>&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;payment-qr&quot;&gt;
+                &lt;img src=&quot;https://img.alicdn.com/imgextra/i2/91924417/O1CN01iUu89W1iV2UGXqQ8L_!!91924417.png&quot; alt=&quot;<font face="NSimSun, monospace"><span lang="zh-CN">程式後台設置</span></font>&quot; width=&quot;190&quot;&gt;
+                &lt;p&gt;<font face="NSimSun, monospace"><span lang="zh-CN">程式後台設置</span></font>&lt;/p&gt;
+            &lt;/div&gt;
+          
+        &lt;/div&gt;   
+      &lt;div class=&quot;payment-methods&quot;&gt;
+            &lt;h2&gt;<font face="NSimSun, monospace"><span lang="zh-CN">支付方式</span></font>&lt;/h2&gt;
+            &lt;div class=&quot;payment-qr&quot;&gt;
+                &lt;img src=&quot;https://img.alicdn.com/imgextra/i2/91924417/O1CN01JdWS7J1iV2UI9c1Et_!!91924417.png&quot; alt=&quot;<font face="NSimSun, monospace"><span lang="zh-CN">支付寶（</span></font>CN<font face="NSimSun, monospace"><span lang="zh-CN">）</span></font>&quot; width=&quot;150&quot;&gt;
+                &lt;p&gt;<font face="NSimSun, monospace"><span lang="zh-CN">支付寶（</span></font>CN<font face="NSimSun, monospace"><span lang="zh-CN">）</span></font>&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;payment-qr&quot;&gt;
+                &lt;img src=&quot;https://img.alicdn.com/imgextra/i2/91924417/O1CN01tgwnW81iV2UI1zmn6_!!91924417.png&quot; alt=&quot;<font face="NSimSun, monospace"><span lang="zh-CN">微信支付（</span></font>CN<font face="NSimSun, monospace"><span lang="zh-CN">）</span></font>&quot; width=&quot;150&quot;&gt;
+                &lt;p&gt;<font face="NSimSun, monospace"><span lang="zh-CN">微信支付（</span></font>CN<font face="NSimSun, monospace"><span lang="zh-CN">）</span></font>&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;payment-qr&quot;&gt;
+                &lt;img src=&quot;https://img.alicdn.com/imgextra/i3/91924417/O1CN01r1Yncr1iV2UG3tgP7_!!91924417.png&quot; alt=&quot;PayMe<font face="NSimSun, monospace"><span lang="zh-CN">（</span></font>HK<font face="NSimSun, monospace"><span lang="zh-CN">）</span></font>&quot; width=&quot;150&quot;&gt;
+                &lt;p&gt;PayMe<font face="NSimSun, monospace"><span lang="zh-CN">（</span></font>HK<font face="NSimSun, monospace"><span lang="zh-CN">）</span></font>&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;payment-qr&quot;&gt;
+                &lt;img src=&quot;https://img.alicdn.com/imgextra/i4/91924417/O1CN01Vs6j3L1iV2UHWFKuW_!!91924417.png&quot; alt=&quot;<font face="NSimSun, monospace"><span lang="zh-CN">轉數快（</span></font>HK<font face="NSimSun, monospace"><span lang="zh-CN">）</span></font>&quot; width=&quot;150&quot;&gt;
+                &lt;p&gt;<font face="NSimSun, monospace"><span lang="zh-CN">轉數快（</span></font>HK<font face="NSimSun, monospace"><span lang="zh-CN">）</span></font>&lt;/p&gt;
+          &lt;/div&gt; 
+        &lt;/div&gt;
+                 &lt;/div&gt;
+           &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;video-section&quot;&gt;
+            &lt;div class=&quot;video-box&quot;&gt;
+                &lt;h2 style=&quot;color: #d32f2f; text-align: center;&quot;&gt;<font face="NSimSun, monospace"><span lang="zh-CN">如何安裝</span></font>TicketBot&lt;/h2&gt;
+                &lt;iframe width=&quot;100%&quot; height=&quot;315&quot; src=&quot;//player.bilibili.com/player.html?isOutside=true&amp;aid=114712620567186&amp;bvid=BV1PTKFzgE2T&amp;cid=30591225276&amp;p=1&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;video-box&quot;&gt;
+                &lt;h2 style=&quot;color: #d32f2f; text-align: center;&quot;&gt;TicketBot<font face="NSimSun, monospace"><span lang="zh-CN">設置後台方法</span></font>&lt;/h2&gt;
+                &lt;iframe width=&quot;100%&quot; height=&quot;315&quot; src=&quot;//player.bilibili.com/player.html?isOutside=true&amp;aid=114691246393395&amp;bvid=BV1puMvzkEXg&amp;cid=30523590236&amp;p=1&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+&lt;div class=&quot;video-section&quot;&gt;
+            &lt;div class=&quot;video-box&quot;&gt;
+                &lt;h2 style=&quot;color: #d32f2f; text-align: center;&quot;&gt;Cityline <font face="NSimSun, monospace"><span lang="zh-CN">搶票攻略</span></font>&lt;/h2&gt;
+                &lt;iframe width=&quot;100%&quot; height=&quot;315&quot; src=&quot;//player.bilibili.com/player.html?isOutside=true&amp;aid=114698997466716&amp;bvid=BV1SdNizEEba&amp;cid=30549675542&amp;p=1&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;video-box&quot;&gt;
+                &lt;h2 style=&quot;color: #d32f2f; text-align: center;&quot;&gt;KKTIX <font face="NSimSun, monospace"><span lang="zh-CN">搶票攻略</span></font>&lt;/h2&gt;
+                &lt;iframe width=&quot;100%&quot; height=&quot;315&quot; src=&quot;//player.bilibili.com/player.html?isOutside=true&amp;aid=114699098128414&amp;bvid=BV1QXNiznENy&amp;cid=30550134193&amp;p=1&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;marketplace-links&quot;&gt;
+            &lt;h2&gt;TicketBot Carousell <font face="NSimSun, monospace"><span lang="zh-CN">旋轉拍賣平台</span></font>&lt;/h2&gt;
+            &lt;a href=&quot;https://www.carousell.com.hk/p/%E6%90%B6%E9%A3%9B%E7%A8%8B%E5%BC%8F-%E9%96%80%E7%A5%A8%E4%BA%A4%E6%98%93%E5%B9%B3%E5%8F%B0-g-dragon-tyson-yoshi-mama-%E5%91%A8%E6%9D%B0%E5%80%AB-le-sserafim-twice-%E9%A6%99%E6%B8%AF%E6%BE%B3%E9%96%80%E6%BC%94%E5%94%B1%E6%9C%83-%E6%90%B6%E9%A3%9B%E5%B7%A5%E5%85%B7%E6%90%B6%E9%A3%9B-bot-%E6%90%B6%E7%A5%A8bot%E6%90%B6%E9%A3%9B%E8%BB%9F%E4%BB%B6%E6%90%B6%E7%A5%A8%E6%A9%9F%E6%A2%B0%E4%BA%BA%E6%90%B6%E7%A5%A8%E7%A8%8B%E5%BC%8F%E6%BC%94%E5%94%B1%E6%9C%83bot%E9%A6%99%E6%B8%AF%E6%BC%94%E5%94%B1%E6%9C%83%E9%96%80%E7%A5%A8%E4%BA%A4%E6%98%93%E5%B9%B3%E5%8F%B0-%E8%B2%B7%E9%A3%9B-%E8%B3%A3%E9%A3%9Bticketbot-%E5%BF%AB%E9%81%94%E7%A5%A8-hkticketing-cityline%E5%9F%8E%E5%B8%82%E5%94%AE%E7%A5%A8%E7%B6%B2urbtix-fantopia-kktix-1374747260/?t-id=tdR0toXv-2_1750000790800&amp;t-referrer_browse_type=search_results&amp;t-referrer_page_type=search&amp;t-referrer_request_id=SnRdqiiExrrA8WvN&amp;t-referrer_search_query=cityline&amp;t-referrer_search_query_source=direct_search&amp;t-referrer_sort_by=popular&amp;t-tap_index=3&quot; class=&quot;btn&quot;&gt;Carousell <font face="NSimSun, monospace"><span lang="zh-CN">旋轉拍賣</span></font>&lt;/a&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;social-section&quot;&gt;
+            &lt;h2&gt;<font face="NSimSun, monospace"><span lang="zh-CN">聯絡我們</span></font>&lt;/h2&gt;
+            &lt;div class=&quot;social-qr&quot;&gt;
+                &lt;img src=&quot;https://img.alicdn.com/imgextra/i2/91924417/O1CN019Gs3Av1iV2UHjtMPv_!!91924417.png&quot; alt=&quot;<font face="NSimSun, monospace"><span lang="zh-CN">微信</span></font>&quot; width=&quot;150&quot;&gt;
+                &lt;p&gt;<font face="NSimSun, monospace"><span lang="zh-CN">微信</span></font>&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;social-qr&quot;&gt;
+                &lt;img src=&quot;https://img.alicdn.com/imgextra/i2/91924417/O1CN01rGzkgm1iV2ULkfayu_!!91924417.png&quot; alt=&quot;Telegram&quot; width=&quot;150&quot;&gt;
+                &lt;p&gt;Telegram&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;social-qr&quot;&gt;
+                &lt;img src=&quot;https://img.alicdn.com/imgextra/i2/91924417/O1CN01jx8b1s1iV2UBhjihg_!!91924417.jpg&quot; alt=&quot;Instagram&quot; width=&quot;150&quot;&gt;
+                &lt;p&gt;Instagram&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;social-qr&quot;&gt;
+                &lt;img src=&quot;https://img.alicdn.com/imgextra/i3/91924417/O1CN012Z6kwF1iV2UHjttgi_!!91924417.jpg&quot; alt=&quot;WhatsApp&quot; width=&quot;150&quot;&gt;
+                &lt;p&gt;WhatsApp&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    
+         &lt;footer&gt;
+            &lt;p&gt;© 2024 TicketBot <font face="NSimSun, monospace"><span lang="zh-CN">搶票助手 </span></font>- <font face="NSimSun, monospace"><span lang="zh-CN">專業港澳台演唱會搶票助手</span></font>&lt;/p&gt;
+            &lt;p&gt;<font face="NSimSun, monospace"><span lang="zh-CN">服務時間</span></font>: 24/7 | <font face="NSimSun, monospace"><span lang="zh-CN">客服郵箱</span></font>: ticketbotmachine@gmail.com&lt;/p&gt;
+        &lt;/footer&gt;
+    &lt;/div&gt;
+  
+&lt;script&gt;
+         // <font face="NSimSun, monospace"><span lang="zh-CN">主倒數計時器</span></font>
+        function updateCountdown() {
+            // <font face="NSimSun, monospace"><span lang="zh-CN">設置下一場演唱會的日期時間 </span></font>(<font face="NSimSun, monospace"><span lang="zh-CN">示例</span></font>: 2023<font face="NSimSun, monospace"><span lang="zh-CN">年</span></font>12<font face="NSimSun, monospace"><span lang="zh-CN">月</span></font>15<font face="NSimSun, monospace"><span lang="zh-CN">日 </span></font>20:00:00)
+            const concertDate = new Date(&quot;2025-06-23T11:00:00&quot;);
+            const now = new Date();
+            const diff = concertDate - now;
+
+            if (diff &lt;= 0) {
+                document.getElementById('countdown').innerHTML = &quot;<font face="NSimSun, monospace"><span lang="zh-CN">搶票已開始！</span></font>&quot;;
+                return;
+            }
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('countdown').innerHTML = 
+                `${days}<font face="NSimSun, monospace"><span lang="zh-CN">天 </span></font>${hours}<font face="NSimSun, monospace"><span lang="zh-CN">小時 </span></font>${minutes}<font face="NSimSun, monospace"><span lang="zh-CN">分鐘 </span></font>${seconds}<font face="NSimSun, monospace"><span lang="zh-CN">秒</span></font>`;
+        }
+        
+        // <font face="NSimSun, monospace"><span lang="zh-CN">更新所有演唱會倒數</span></font>
+        function updateConcertCountdown(id, targetDateStr) {
+            const now = new Date();
+            const targetDate = new Date(targetDateStr);
+            const diff = targetDate - now;
+            
+            if (diff &lt;= 0) {
+                document.getElementById(id).innerHTML = &quot;<font face="NSimSun, monospace"><span lang="zh-CN">搶票已開始！</span></font>&quot;;
+                return;
+            }
+            
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            document.getElementById(id).innerHTML = 
+                `<font face="NSimSun, monospace"><span lang="zh-CN">搶票倒數</span></font>: ${days}<font face="NSimSun, monospace"><span lang="zh-CN">天 </span></font>${hours}<font face="NSimSun, monospace"><span lang="zh-CN">小時 </span></font>${minutes}<font face="NSimSun, monospace"><span lang="zh-CN">分鐘 </span></font>${seconds}<font face="NSimSun, monospace"><span lang="zh-CN">秒</span></font>`;
+        }
+        
+        // <font face="NSimSun, monospace"><span lang="zh-CN">初始化倒數計時器</span></font>
+        updateCountdown();
+        updateConcertCountdown(&quot;concert1-countdown&quot;, &quot;2025-06-23T15:00:00&quot;);
+        updateConcertCountdown(&quot;concert2-countdown&quot;, &quot;2025-06-23T11:00:00&quot;);
+        updateConcertCountdown(&quot;concert3-countdown&quot;, &quot;2025-07-04T12:00:00&quot;);
+        updateConcertCountdown(&quot;concert4-countdown&quot;, &quot;2025-07-04T12:00:00&quot;);
+        updateConcertCountdown(&quot;concert5-countdown&quot;, &quot;2025-07-04T11:00:00&quot;);
+        updateConcertCountdown(&quot;concert6-countdown&quot;, &quot;2025-07-04T12:00:00&quot;);
+        
+        
+        // <font face="NSimSun, monospace"><span lang="zh-CN">每秒更新一次</span></font>
+        setInterval(updateCountdown, 1000);
+        setInterval(() =&gt; updateConcertCountdown(&quot;concert1-countdown&quot;, &quot;2025-06-23T15:00:00&quot;), 1000);
+        setInterval(() =&gt; updateConcertCountdown(&quot;concert2-countdown&quot;, &quot;2025-06-23T11:00:00&quot;), 1000);
+        setInterval(() =&gt; updateConcertCountdown(&quot;concert3-countdown&quot;, &quot;2025-07-04T12:00:00&quot;), 1000);
+        setInterval(() =&gt; updateConcertCountdown(&quot;concert4-countdown&quot;, &quot;2025-07-04T12:00:00&quot;), 1000);
+        setInterval(() =&gt; updateConcertCountdown(&quot;concert5-countdown&quot;, &quot;2025-07-04T11:00:00&quot;), 1000);
+        setInterval(() =&gt; updateConcertCountdown(&quot;concert6-countdown&quot;, &quot;2025-07-04T12:00:00&quot;), 1000);
+        
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+</body>
+</html>
